@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    if userBar
+        include userBar
+
+    if article
+        .article-container
+            h1.article-title #{article.title}
+            img.article-image(src=article.images, alt="Image de l'article")
+            p.article-text #{article.texte}
+    else
+        .error-message
+            p Aucun article trouvé.

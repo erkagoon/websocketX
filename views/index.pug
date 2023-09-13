@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    if userBar
+        include userBar
+    
+    .main-container
+        .center
+            h1= title
+            //- Divise le texte en paragraphes et supprime ceux qui sont vides ou ne contiennent que des espaces blancs
+            - var paragraphs = text.split('\n').filter(p => p.trim())
+            each paragraph in paragraphs
+                p= paragraph.trim()
+
+        .articles-container
+            each article in articles
+                a(href="/article/" + article.id)
+                    .article
+                        .left
+                            if article.images
+                                img(src=article.images, alt="Image de l'article")
+                        .right
+                            h2= article.title
+                            p= article.texte.substring(0, 150) + (article.texte.length > 150 ? '...' : '')

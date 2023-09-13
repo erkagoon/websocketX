@@ -1,0 +1,170 @@
+│   api
+│   │   article.js
+│   │   avatarPost.js
+│   │   index.js
+│   │   infosUser.js
+│   │   login.js
+│   │   loginPost.js
+│   │   logoutPost.js
+│   │   register.js
+│   └───registerPost.js
+│   app.js
+│   assets
+│   │   css
+│   │   │   article.css
+│   │   │   article.css.map
+│   │   │   body.css
+│   │   │   body.css.map
+│   │   │   index.css
+│   │   │   index.css.map
+│   │   │   infosUser.css
+│   │   │   infosUser.css.map
+│   │   │   login.css
+│   │   │   login.css.map
+│   │   │   register.css
+│   │   │   register.css.map
+│   │   │   regsiter.css.map
+│   │   │   userBar.css
+│   │   │   userBar.css.map
+│   │   │   variables.css
+│   │   └───variables.css.map
+│   │   img
+│   │   │   arrow-down.png
+│   │   │   avatar
+│   │   │   │   avatar_1.png
+│   │   │   │   avatar_10.png
+│   │   │   │   avatar_11.png
+│   │   │   │   avatar_12.png
+│   │   │   │   avatar_13.png
+│   │   │   │   avatar_14.png
+│   │   │   │   avatar_15.png
+│   │   │   │   avatar_16.png
+│   │   │   │   avatar_17.png
+│   │   │   │   avatar_18.png
+│   │   │   │   avatar_19.png
+│   │   │   │   avatar_2.png
+│   │   │   │   avatar_20.png
+│   │   │   │   avatar_21.png
+│   │   │   │   avatar_22.png
+│   │   │   │   avatar_23.png
+│   │   │   │   avatar_24.png
+│   │   │   │   avatar_25.png
+│   │   │   │   avatar_26.png
+│   │   │   │   avatar_27.png
+│   │   │   │   avatar_28.png
+│   │   │   │   avatar_29.png
+│   │   │   │   avatar_3.png
+│   │   │   │   avatar_30.png
+│   │   │   │   avatar_31.png
+│   │   │   │   avatar_32.png
+│   │   │   │   avatar_33.png
+│   │   │   │   avatar_34.png
+│   │   │   │   avatar_35.png
+│   │   │   │   avatar_36.png
+│   │   │   │   avatar_37.png
+│   │   │   │   avatar_38.png
+│   │   │   │   avatar_39.png
+│   │   │   │   avatar_4.png
+│   │   │   │   avatar_40.png
+│   │   │   │   avatar_41.png
+│   │   │   │   avatar_42.png
+│   │   │   │   avatar_43.png
+│   │   │   │   avatar_44.png
+│   │   │   │   avatar_45.png
+│   │   │   │   avatar_46.png
+│   │   │   │   avatar_47.png
+│   │   │   │   avatar_48.png
+│   │   │   │   avatar_49.png
+│   │   │   │   avatar_5.png
+│   │   │   │   avatar_50.png
+│   │   │   │   avatar_51.png
+│   │   │   │   avatar_52.png
+│   │   │   │   avatar_53.png
+│   │   │   │   avatar_54.png
+│   │   │   │   avatar_55.png
+│   │   │   │   avatar_56.png
+│   │   │   │   avatar_57.png
+│   │   │   │   avatar_58.png
+│   │   │   │   avatar_6.png
+│   │   │   │   avatar_7.png
+│   │   │   │   avatar_8.png
+│   │   │   └───avatar_9.png
+│   │   │   deconnexion-30.png
+│   │   │   deconnexion-60.png
+│   │   │   hide.png
+│   │   │   home.png
+│   │   │   password-64.png
+│   │   │   phaserlogo.png
+│   │   │   precedent.png
+│   │   │   show.png
+│   │   │   suivant.png
+│   │   │   user-48.png
+│   │   │   user_param-48.png
+│   │   └───utilisateur.png
+│   │   js
+│   │   │   infosUser.js
+│   │   │   login.js
+│   │   │   register.js
+│   │   └───userBar.js
+│   └───scss
+│       │   │   article.scss
+│       │   │   body.scss
+│       │   │   index.scss
+│       │   │   infosUser.scss
+│       │   │   login.scss
+│       │   │   register.scss
+│       │   │   userBar.scss
+│       │   └───variables.scss
+│   config
+│   │   bcrypt.js
+│   │   dbConfig.js
+│   │   dbCreate.js
+│   │   express.js
+│   │   passport.js
+│   └───pug.js
+│   jobs
+│   loaders
+│   └───api.js
+│   logs
+│   │   importRoutes.js
+│   │   importRoutes.txt
+│   │   projectTree.js
+│   └───projectTree.txt
+│   middleware
+│   │   authentication.js
+│   │   authorization.js
+│   │   bodyParser.js
+│   │   cookieParser.js
+│   │   customMiddleware.js
+│   │   essentialConfig.js
+│   │   globalErrorHandler.js
+│   │   helmet.js
+│   │   morgan.js
+│   │   notFoundHandler.js
+│   │   rateLimiter.js
+│   │   routeHandlers.js
+│   │   session.js
+│   │   staticAssets.js
+│   └───thirdPartyMiddleware.js
+│   models
+│   │   article.js
+│   │   articleQueries.js
+│   │   homePage.js
+│   │   homePageQueries.js
+│   │   user.js
+│   └───userQueries.js
+│   package-lock.json
+│   package.json
+│   services
+│   subscribers
+│   types
+│   utilities
+│   └───avatarUtils.js
+└───views
+    │   │   article.pug
+    │   │   index.pug
+    │   │   infosUser.pug
+    │   │   layout.pug
+    │   │   login.pug
+    │   │   register.pug
+    │   └───userBar.pug

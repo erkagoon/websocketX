@@ -1,0 +1,74 @@
+@import 'variables';
+
+/* barre utilisateur */
+#userBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: white;
+    color: black;
+    position: relative;
+    height: 55px;
+    border-bottom: solid black 3px;
+    transition: margin-top 0.5s;
+
+    &.hidden {
+        transition: margin-top 0.5s;
+        margin-top: -52px;
+    }
+
+    .left, .right {
+        display: flex;
+        align-items: center;
+        .userParamImg, .logoutImg {
+            width: 30px;
+            height: 30px;
+        }
+        #btnSubmit {
+            margin-right: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .userParamImg {
+        }
+    }
+
+    .greeting {
+        font-size: 1.2em;
+        margin-right: 1em;
+    }
+
+    .center {
+        position: absolute;
+        bottom: -4px; // pour que la flèche soit en dessous de la barre
+        left: 50%;
+        transform: translateX(-50%); // pour centrer la flèche
+        transform: translateY(50%); // pour centrer la flèche
+        button#toggleButton {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        img {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 20px;
+            border:solid black 1px;
+        }
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%; // pour un affichage en cercle
+        margin-right: 20px;
+    }
+
+    #btnSubmit {
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,66 @@
+/* barre utilisateur */
+#userBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: white;
+  color: black;
+  position: relative;
+  height: 55px;
+  border-bottom: solid black 3px;
+  transition: margin-top 0.5s;
+}
+#userBar.hidden {
+  transition: margin-top 0.5s;
+  margin-top: -52px;
+}
+#userBar .left, #userBar .right {
+  display: flex;
+  align-items: center;
+}
+#userBar .left .userParamImg, #userBar .left .logoutImg, #userBar .right .userParamImg, #userBar .right .logoutImg {
+  width: 30px;
+  height: 30px;
+}
+#userBar .left #btnSubmit, #userBar .right #btnSubmit {
+  margin-right: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#userBar .greeting {
+  font-size: 1.2em;
+  margin-right: 1em;
+}
+#userBar .center {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  transform: translateY(50%);
+}
+#userBar .center button#toggleButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+#userBar .center img {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 20px;
+  border: solid black 1px;
+}
+#userBar .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+#userBar #btnSubmit {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=userBar.css.map */

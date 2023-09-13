@@ -1,0 +1,111 @@
+@import 'variables';
+
+#globalInfosUser {
+    display: flex;
+    justify-content: center;
+
+    .divInfosUser1 {
+        display: flex;
+        gap: 50px;
+        width: 50%;
+        border-radius: 15px;
+        border: solid grey 2px;
+        margin: 50px;
+        padding: 25px;
+        justify-content: space-between;
+        background-color: #ffffff;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); // ombre pour ajouter de la profondeur
+
+        img {
+            width: 100px;
+            border-radius: 50%;  // Rend l'avatar circulaire
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+            color: #555;  // Couleur de texte plus douce
+            margin: 0;
+        }
+    }
+
+    .divInfosUser1Left {
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
+
+    .divInfosUser1Right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:10px;
+    }
+
+    // ... (autres styles)
+
+    .divInfosUser2 {
+        border-radius: 15px;
+        border: solid grey 2px;
+        margin: 50px;
+        padding: 25px;
+        width: 50%;
+        display: flex;
+        background-color: #f5f5f5; 
+        overflow: hidden;    // Cache les images défilées
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
+        p.titleAvatar {
+            position:absolute;
+            top:25px;
+            left:50%;
+            transform: translateX(-50%);
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            width:70%;
+            .avatar-container {
+                width: 70px;
+                height: 70px;
+                margin: 0 10px;
+                cursor: pointer; // Pour montrer que l'image est cliquable
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                img {
+                    width: 100%; 
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+            }
+        }
+
+        .gallery-nav {
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 10;  // Pour s'assurer qu'il apparaisse au-dessus des images
+            &.left {
+                left: 0;
+            }
+            &.right {
+                right: 0;
+            }
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+
+}
+

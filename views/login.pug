@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	#titleReg
+		h1 Connexion
+	#divFormRegister
+		form#formRegister(action="/login" method="post")
+			.inputReg
+				label(for="username")
+					img#userIcon(src="./assets/img/user-48.png" alt="Icone de l'utilisateur")
+				input(type="text" id="username" name="username" placeholder="Pseudo")
+			.inputReg
+				label(for="password")
+					img#passwordIcon(src="./assets/img/password-64.png" alt="Icone de l'utilisateur")
+				input(type="password" id="password" name="password" placeholder="Mot de passe")
+			input#inputSubmit.login(type="submit" value="Se connecter")
+			span#formulaireError(style="color: red;")
+	p
+		| ou 
+		a(href="/register") Créer un compte
+	script(src="./assets/js/login.js") 

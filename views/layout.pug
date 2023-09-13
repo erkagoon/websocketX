@@ -1,0 +1,12 @@
+doctype html
+html
+	head
+		title= title
+		if cssBody
+			link(rel='stylesheet', href= cssBody)
+		if cssPage
+			link(rel='stylesheet', href= cssPage)
+		if userBar 
+			link(rel='stylesheet', href= userBar)
+	body
+		block content

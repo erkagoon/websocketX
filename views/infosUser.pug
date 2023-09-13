@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	if userBar
+		include userBar.pug 
+	#globalInfosUser
+		.divInfosUser1
+			.divInfosUser1Left
+				p Nom D'utilisateur: 
+				p Compte créé le:
+				p Avatar: 
+			.divInfosUser1Right
+				p= user.username
+				p= user.createdAt
+				img.infosUserAvatar(src=user.avatar, alt="Avatar de l'utilisateur")
+		.divInfosUser2
+			p.titleAvatar Changer mon avatar
+			button.gallery-nav.left
+				img(src="/assets/img/precedent.png", alt="precedent")
+			.gallery-container
+				each image in images
+					.avatar-container
+						img(src=image.src, alt=image.alt)
+			button.gallery-nav.right
+				img(src="/assets/img/suivant.png", alt="suivant")
+	script(src="/assets/js/infosUser.js") 

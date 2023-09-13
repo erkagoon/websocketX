@@ -1,0 +1,69 @@
+@import 'variables';
+
+.main-container {
+    display: flex;
+    padding: 20px;
+
+    .center {
+        flex: 1; // Prend tout l'espace disponible pour pousser les articles vers la droite
+        padding-right: 40px; // espace entre le contenu central et la colonne des articles
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+    }
+
+    .articles-container {
+        width: 30%; // Ajustez selon vos besoins
+        max-width: 400px; // Ajustez selon vos besoins
+
+        a {
+
+            text-decoration: none; // Retire le soulignement de tout le lien
+
+            .article {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #e1e1e1;
+                transition: background-color 0.2s;
+
+                &:hover {
+                    background-color: #f6f6f6;
+                }
+
+                .left, 
+                .right {
+                    flex: 1;
+                    padding: 10px;
+                }
+
+                img {
+                    max-width: 100px; // Ajustement selon la taille des images
+                    border-radius: 4px;
+                    margin-right: 15px;
+                }
+
+                h2 {
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                    text-decoration: underline; // Ajoute le soulignement seulement pour le titre
+                }
+
+                p {
+                    font-size: 16px;
+                    color: #555;
+                }
+            }
+        }
+    }
+}

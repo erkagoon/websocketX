@@ -1,0 +1,35 @@
+if user
+    #userBar
+        .left
+            span.greeting Bonjour #{user.username}
+            img.avatar(src=user.avatar, alt="Avatar de l'utilisateur")
+        .center
+            button#toggleButton
+                img.hideBarImg(src="/assets/img/hide.png", alt="Icône pour cacher/montrer la barre utilisateur")
+        
+        .right
+            form(action="/" method="get")
+                button#btnSubmit(type="submit")
+                    img.userParamImg(src="/assets/img/home.png", alt="Icône des paramètres utilisateur")
+            form(action="/infosUser" method="get")
+                button#btnSubmit(type="submit")
+                    img.userParamImg(src="/assets/img/user_param-48.png", alt="Icône des paramètres utilisateur")
+            form(action="/logout" method="post")
+                button#btnSubmit(type="submit")
+                    img.logoutImg(src="/assets/img/deconnexion-30.png", alt="Icône de déconnexion")
+else 
+    #userBar
+        .left
+            form#connexion(action="/login" method="get")
+                button#btnSubmit(type="submit")
+                    img.userParamImg(src="/assets/img/utilisateur.png", alt="Icône de connexion")
+                    p Se connecter
+        .center
+            button#toggleButton
+                img.hideBarImg(src="/assets/img/hide.png", alt="Icône pour cacher/montrer la barre utilisateur")
+        .right
+            form(action="/" method="get")
+                button#btnSubmit(type="submit")
+                    img.userParamImg(src="/assets/img/home.png", alt="Icône des paramètres utilisateur")
+
+script(src="/assets/js/userBar.js") 

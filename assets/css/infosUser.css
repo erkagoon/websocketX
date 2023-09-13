@@ -1,0 +1,98 @@
+#globalInfosUser {
+  display: flex;
+  justify-content: center;
+}
+#globalInfosUser .divInfosUser1 {
+  display: flex;
+  gap: 50px;
+  width: 50%;
+  border-radius: 15px;
+  border: solid grey 2px;
+  margin: 50px;
+  padding: 25px;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+#globalInfosUser .divInfosUser1 img {
+  width: 100px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#globalInfosUser .divInfosUser1 p {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+  color: #555;
+  margin: 0;
+}
+#globalInfosUser .divInfosUser1Left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#globalInfosUser .divInfosUser1Right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+#globalInfosUser .divInfosUser2 {
+  border-radius: 15px;
+  border: solid grey 2px;
+  margin: 50px;
+  padding: 25px;
+  width: 50%;
+  display: flex;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+#globalInfosUser .divInfosUser2 p.titleAvatar {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1em;
+  font-weight: bold;
+}
+#globalInfosUser .divInfosUser2 .gallery-container {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+}
+#globalInfosUser .divInfosUser2 .gallery-container .avatar-container {
+  width: 70px;
+  height: 70px;
+  margin: 0 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#globalInfosUser .divInfosUser2 .gallery-container .avatar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+#globalInfosUser .divInfosUser2 .gallery-nav {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+#globalInfosUser .divInfosUser2 .gallery-nav.left {
+  left: 0;
+}
+#globalInfosUser .divInfosUser2 .gallery-nav.right {
+  right: 0;
+}
+#globalInfosUser .divInfosUser2 .gallery-nav img {
+  width: 30px;
+  height: 30px;
+}
+
+/*# sourceMappingURL=infosUser.css.map */

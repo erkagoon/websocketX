@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    #titleReg
+        h1 Inscription
+    #divFormRegister
+        form#formRegister(action="/reg" method="post")
+            .inputReg
+                label(for="username")
+                    img#userIcon(src="./assets/img/user-48.png" alt="Icone de l'utilisateur")
+                input(type="text" id="username" name="username" placeholder="Pseudo")
+            .inputReg
+                label(for="password")
+                    img#passwordIcon(src="./assets/img/password-64.png" alt="Icone de l'utilisateur")
+                input(type="password" id="password" name="password" placeholder="Mot de passe")
+            .inputReg
+                label(for="passwordCheck")
+                    img#passwordIcon(src="./assets/img/password-64.png" alt="Icone de l'utilisateur")
+                input(type="password" id="passwordCheck" name="passwordCheck" placeholder="Vérification du mot de passe")
+            input#inputSubmit.register(type="submit" value="Créer un compte")
+            span#formulaireError(style="color: red;")
+    script(src="./assets/js/register.js") 
