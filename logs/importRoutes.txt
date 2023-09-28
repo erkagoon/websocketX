@@ -7,6 +7,7 @@ Ordre - Fichier - Route - Type
 0 - infosUser.js - '/infosUser' - get,
 0 - login.js - '/login' - get,
 0 - register.js - '/register' - get,
+0 - teststhree.js - '/teststhree' - get,
 1 - registerPost.js - '/reg' - post,
 2 - avatarPost.js - '/avatar' - post,
 2 - loginPost.js - '/login' - post,

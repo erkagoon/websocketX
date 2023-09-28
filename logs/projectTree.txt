@@ -1,3 +1,66 @@
+│   .git
+│   │   COMMIT_EDITMSG
+│   │   config
+│   │   description
+│   │   FETCH_HEAD
+│   │   HEAD
+│   │   hooks
+│   │   │   applypatch-msg.sample
+│   │   │   commit-msg.sample
+│   │   │   fsmonitor-watchman.sample
+│   │   │   post-update.sample
+│   │   │   pre-applypatch.sample
+│   │   │   pre-commit.sample
+│   │   │   pre-merge-commit.sample
+│   │   │   pre-push.sample
+│   │   │   pre-rebase.sample
+│   │   │   pre-receive.sample
+│   │   │   prepare-commit-msg.sample
+│   │   │   push-to-checkout.sample
+│   │   └───update.sample
+│   │   index
+│   │   info
+│   │   └───exclude
+│   │   logs
+│   │   │   HEAD
+│   │   └───refs
+│   │       │   │   heads
+│   │       │   │   │   master
+│   │       │   │   └───ThreeJs
+│   │       │   └───remotes
+│   │       │       │   └───origin
+│   │       │       │       │   │   HEAD
+│   │       │       │       │   └───master
+│   │   objects
+│   │   │   07
+│   │   │   └───b4c33646b2ba5fe524e39f229a22b5b8d1815d
+│   │   │   1d
+│   │   │   └───640d937fd8b8bfec3d4fd5d7fefe6c2c7c502f
+│   │   │   43
+│   │   │   └───d778de9484a3e92fca571098df9aa12997970a
+│   │   │   60
+│   │   │   └───3ed0310c78cd8d493832ef68f287467a98fd9b
+│   │   │   62
+│   │   │   └───fdf992d3f17eedc22104a9a4f823feca01d74a
+│   │   │   84
+│   │   │   └───5f9f8f4054874bffe026d46785d2c414d878f5
+│   │   │   info
+│   │   └───pack
+│   │       │   │   pack-5f2addf30231a0f4cb3c02634a5c531cd6ca4f08.idx
+│   │       │   └───pack-5f2addf30231a0f4cb3c02634a5c531cd6ca4f08.pack
+│   │   ORIG_HEAD
+│   │   packed-refs
+│   │   refs
+│   │   │   heads
+│   │   │   │   master
+│   │   │   └───ThreeJs
+│   │   │   remotes
+│   │   │   └───origin
+│   │   │       │   │   HEAD
+│   │   │       │   └───master
+│   │   └───tags
+│   └───sourcetreeconfig.json
+│   .gitignore
 │   api
 │   │   article.js
 │   │   avatarPost.js
@@ -7,7 +70,8 @@
 │   │   loginPost.js
 │   │   logoutPost.js
 │   │   register.js
-│   └───registerPost.js
+│   │   registerPost.js
+│   └───teststhree.js
 │   app.js
 │   assets
 │   │   css
@@ -24,6 +88,8 @@
 │   │   │   register.css
 │   │   │   register.css.map
 │   │   │   regsiter.css.map
+│   │   │   teststhree.css
+│   │   │   teststhree.css.map
 │   │   │   userBar.css
 │   │   │   userBar.css.map
 │   │   │   variables.css
@@ -105,6 +171,7 @@
 │   │   │   infosUser.js
 │   │   │   login.js
 │   │   │   register.js
+│   │   │   teststhree.js
 │   │   └───userBar.js
 │   └───scss
 │       │   │   article.scss
@@ -113,6 +180,7 @@
 │       │   │   infosUser.scss
 │       │   │   login.scss
 │       │   │   register.scss
+│       │   │   teststhree.scss
 │       │   │   userBar.scss
 │       │   └───variables.scss
 │   config
@@ -122,7 +190,6 @@
 │   │   express.js
 │   │   passport.js
 │   └───pug.js
-│   jobs
 │   loaders
 │   └───api.js
 │   logs
@@ -155,16 +222,15 @@
 │   └───userQueries.js
 │   package-lock.json
 │   package.json
-│   services
-│   subscribers
-│   types
 │   utilities
 │   └───avatarUtils.js
-└───views
-    │   │   article.pug
-    │   │   index.pug
-    │   │   infosUser.pug
-    │   │   layout.pug
-    │   │   login.pug
-    │   │   register.pug
-    │   └───userBar.pug
+│   views
+│   │   article.pug
+│   │   index.pug
+│   │   infosUser.pug
+│   │   layout.pug
+│   │   login.pug
+│   │   register.pug
+│   │   teststhree.pug
+│   └───userBar.pug
+└───websocketX.code-workspace
