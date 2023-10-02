@@ -11,6 +11,9 @@ const sequelize = require('./config/dbCreate');
 const importRoutes = require("./logs/importRoutes");
 const projectTree = require("./logs/projectTree");
 
+//webpack import
+require('./config/webpack');
+
 //loader import
 const { apiLoader } = require("./loaders/api");
 
@@ -27,7 +30,12 @@ const morgan = require("./middleware/morgan");
 const bodyParser = require("./middleware/bodyParser");
 const cookieParser = require("./middleware/cookieParser");
 const session = require("./middleware/session");
+
+//assets générales
 const staticAssets = require("./middleware/staticAssets");
+//asset du jeu
+const staticGameAssets = require("./middleware/staticGameAssets");
+
 const routeHandlers = require("./middleware/routeHandlers");
 const authentication = require("./middleware/authentication");
 const authorization = require("./middleware/authorization");
@@ -59,6 +67,7 @@ morgan(app); // Pour l'enregistrement des requêtes
 bodyParser(app); // Pour l'analyse du corps des requêtes POST
 cookieParser(app); // Pour l'analyse des cookies de la requête
 staticAssets(app); // Pour servir des fichiers statiques comme CSS, JavaScript, images
+staticGameAssets(app); // Pour servir les fichiers statiques du jeu
 session(app); // Pour la gestion des sessions
 
 // Middlewares de routage

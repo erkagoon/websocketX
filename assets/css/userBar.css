@@ -10,6 +10,7 @@
   height: 55px;
   border-bottom: solid black 3px;
   transition: margin-top 0.5s;
+  z-index: 999;
 }
 #userBar.hidden {
   transition: margin-top 0.5s;

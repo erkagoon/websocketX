@@ -10,6 +10,7 @@ async function walk(dir, prefix = '') {
         
         // Ignorer le dossier node_modules
         if (file === 'node_modules') continue;
+        if (file === '.git') continue;
 
         const fullPath = path.join(dir, file);
         const stat = await fs.stat(fullPath);

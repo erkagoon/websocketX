@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    script(src="/gameAssets/js/main.js")
+
+    if userBar
+        include userBar
+    
+    .test 
+        p Salut
+    .main-container
+        .center
+            h1= title

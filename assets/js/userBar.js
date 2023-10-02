@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Pour cacher la barre sur les pages qu'on veut
-    hidden('/gameCore');
+    hidden('/game');
     
     toggleButton.addEventListener('click', function() {
         if (userBar.classList.contains('hidden')) {
