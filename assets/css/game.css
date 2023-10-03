@@ -1,8 +1,5 @@
-.test {
-  border: solid red 2px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/*# sourceMappingURL=game.css.map */
+#userBar {
+  position: absolute !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}/*# sourceMappingURL=game.css.map */
