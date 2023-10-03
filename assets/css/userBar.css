@@ -54,14 +54,18 @@
   border-radius: 20px;
   border: solid black 1px;
 }
-#userBar .avatar {
+#userBar .avatar-container {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+#userBar .avatar-container .avatar {
+  width: 100%;
 }
 #userBar #btnSubmit {
   font-weight: bold;
-}
-
-/*# sourceMappingURL=userBar.css.map */
+}/*# sourceMappingURL=userBar.css.map */
