@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { GameConfig } from "./class/GameConfig.js";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+//import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+
 
 window.addEventListener("DOMContentLoaded", () => {
 	let ok = false;
@@ -113,7 +114,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		document.body.appendChild(renderer.domElement);
 
 		if (!typeof THREE.OrbitControls === "undefined") {
-			console.log("🤍 OrbitControls not undefined:");
+			console.log("🤍 OrbitControls defined:");
 			// Pas d'OrbitControls pour l'instant
 			// todo Import qui marche ,(
 			const controls = new THREE.OrbitControls(camera, renderer.domElement);
