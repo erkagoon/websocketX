@@ -18,7 +18,7 @@ module.exports = {
 
                 // Si tout va bien, transmettez le résultat au template
                 res.render('article', { 
-                    title: '', 
+                    title: result[0].title, 
                     cssBody: '/assets/css/body.css', 
                     cssPage: '/assets/css/article.css',
                     userBar: '/assets/css/userBar.css',
