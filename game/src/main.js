@@ -1,10 +1,10 @@
 import * as THREE from "three";
 import { GameConfig } from "./class/GameConfig.js";
-//import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 window.addEventListener("DOMContentLoaded", () => {
 	let ok = false;
+
 
 	if (typeof GameConfig === "function" && typeof THREE === "object") {
 		document.getElementById("diverreur").remove();
@@ -72,7 +72,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		const groundMaterial = new THREE.MeshPhongMaterial({ color: 0xfafafa });
 		const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
 		groundMesh.receiveShadow = true;
-		groundMesh.position.z = 0.5;
+		groundMesh.position.z = -0.5;
 
 		// la camera
 		let camera = new THREE.PerspectiveCamera(
@@ -88,13 +88,14 @@ window.addEventListener("DOMContentLoaded", () => {
 		function set_CameraFollow(posV3) {
 			camera.position.x = cameraConfig.position.x = posV3.x;
 			camera.position.y = cameraConfig.position.y = posV3.y;
+			if (typeof controls != "undefined") controls.update();
 		}
 		function set_CameraLookAt(posV3) {
 			cameraConfig.lookAt = posV3;
 			camera.lookAt(posV3);
 		}
-		set_CameraLookAt(boxMesh2.position);
-		set_CameraFollow(boxMesh2.position);
+		// set_CameraLookAt(boxMesh2.position);
+		// set_CameraFollow(boxMesh2.position);
 
 		scene.add(boxMesh1);
 		scene.add(boxMesh2);
@@ -113,14 +114,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		document.body.appendChild(renderer.domElement);
 
-		if (!typeof THREE.OrbitControls === "undefined") {
+		if (typeof OrbitControls != "undefined") {
 			console.log("🤍 OrbitControls defined:");
-			// Pas d'OrbitControls pour l'instant
-			// todo Import qui marche ,(
-			const controls = new THREE.OrbitControls(camera, renderer.domElement);
+			const controls = new OrbitControls(camera, renderer.domElement);
 		} else {
 			console.log(
-				"💀 export 'OrbitControls' (imported as 'THREE') was not found in 'three"
+				"💀 typeof OrbitControls ="+typeof OrbitControls
 			);
 		}
 
@@ -177,9 +176,9 @@ window.addEventListener("DOMContentLoaded", () => {
 			boxMesh1.rotation.x += vitesseDeRotation;
 			// boxMesh2.rotation.y += vitesseDeRotation;
 			boxMesh3.rotation.z += vitesseDeRotation;
-			cameraConfig.lookAt = boxMesh2.position;
+			// cameraConfig.lookAt = boxMesh2.position;
 			// set_CameraLookAt(boxMesh2.position);
-			set_CameraFollow(boxMesh2.position);
+			// set_CameraFollow(boxMesh2.position);
 			camera.updateProjectionMatrix();
 
 			// si OrbitControls marche
