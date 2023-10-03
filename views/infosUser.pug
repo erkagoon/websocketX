@@ -12,7 +12,8 @@ block content
 			.divInfosUser1Right
 				p= user.username
 				p= user.createdAt
-				img.infosUserAvatar(src=user.avatar, alt="Avatar de l'utilisateur")
+				div.infosUserAvatar-container 
+					img.infosUserAvatar(src=user.avatar, alt="Avatar de l'utilisateur")
 		.divInfosUser2
 			p.titleAvatar Changer mon avatar
 			button.gallery-nav.left

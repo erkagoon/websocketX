@@ -2,11 +2,11 @@ if user
     #userBar
         .left
             span.greeting Bonjour #{user.username}
-            img.avatar(src=user.avatar, alt="Avatar de l'utilisateur")
+            div.avatar-container 
+                img.avatar(src=user.avatar, alt="Avatar de l'utilisateur")
         .center
             button#toggleButton
                 img.hideBarImg(src="/assets/img/hide.png", alt="Icône pour cacher/montrer la barre utilisateur")
-        
         .right
             form(action="/" method="get")
                 button#btnSubmit(type="submit")
