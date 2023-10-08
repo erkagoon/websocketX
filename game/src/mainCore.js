@@ -3,219 +3,156 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 import { GameConfig } from "./class/GameConfig.js";
 import { ModelsManager } from "./class/scene/ModelsManager.js";
+import { KeyboardManager } from "./class/scene/KeyboardManager.js";
 
 class gameCore {
-	_ModelsManager = null;
+	canvasId = 'game';
+	ModelsManager = null;
+	KeyboardManager = null;
 	constructor() {
-		this.init()
+		this.init();
 	}
 	init() {
+		this.gameConfig = new GameConfig(); // Config
+		this.sunConfig = this.gameConfig.lights.sunConfig;
+		this.cameraConfig = this.gameConfig.cameras.cameraConfig;
+		this.Phase_1();
+	}
+	checkKeyboard = () => {
+		let vitesse = 0.02
+		if (this.KeyboardManager.left) this.boxMesh2.position.x -= vitesse;
+		if (this.KeyboardManager.right) this.boxMesh2.position.x += vitesse;
+		if (this.KeyboardManager.backward) this.boxMesh2.position.y -= vitesse;
+		if (this.KeyboardManager.forward) this.boxMesh2.position.y += vitesse;
+	}
+	animate = () => {
+		requestAnimationFrame(this.animate);
+
+
+		this.checkKeyboard()
+		
+		// si OrbitControls marche
+		if (typeof controls != "undefined") controls.update();
+		this.camera.updateProjectionMatrix();
+		this.renderer.render(this.scene, this.camera);
+	};
+	Phase_1() {
 		// MODEL MANAGER
-		this._ModelsManager = new ModelsManager({
+		this.ModelsManager = new ModelsManager({
 			fonctionretour: (allModelsAndAnimations) => {
 				this.allModels = allModelsAndAnimations;
-				console.log("_ModelsManager ok go next !");
-				this.start();
+				this.Phase_2();
 			},
 		});
-
-		this.start = () => {
-			let i = 0;
-			console.log("init_B ok go next !");
-			if (typeof GameConfig === "function" && typeof THREE === "object") {
-		
-		
-		
-				document.getElementById("diverreur").remove();
-		
-				const gameConfig = new GameConfig();
-				const sunConfig = gameConfig.lights.sunConfig;
-				const cameraConfig = gameConfig.cameras.cameraConfig;
-		
-				console.log("🤍 sunConfig:", sunConfig);
-				console.log("🤍 cameraConfig:", cameraConfig);
-		
-				const scene = new THREE.Scene();
-		
-				// le SOLEIL
-				let soleil = new THREE.DirectionalLight(sunConfig.color, sunConfig.power);
-				soleil.position.set(
-					sunConfig.position.x,
-					sunConfig.position.y,
-					sunConfig.position.z
-				);
-				soleil.castShadow = true;
-				soleil.shadow.bias = -0.001;
-		
-				soleil.shadow.mapSize.width = 2048;
-				soleil.shadow.mapSize.height = 2048;
-				soleil.shadow.camera.near = 0.5;
-				soleil.shadow.camera.far = 500.0;
-				soleil.shadow.camera.left = 100;
-				soleil.shadow.camera.right = -100;
-				soleil.shadow.camera.top = 100;
-				soleil.shadow.camera.bottom = -100;
-		
-				// une lumière d'ambiance
-				const ambiance = new THREE.AmbientLight(0xffffff, 0.4);
-		
-				const bg1 = new THREE.BoxGeometry(1, 1, 1);
-				const bm1 = new THREE.MeshPhongMaterial({ color: 0xff0000 });
-				const boxMesh1 = new THREE.Mesh(bg1, bm1);
-				boxMesh1.castShadow = true;
-				boxMesh1.receiveShadow = true;
-				boxMesh1.position.x = -2;
-				boxMesh1.position.y = 0;
-				boxMesh1.position.z = 2;
-		
-				const bg2 = new THREE.BoxGeometry(1, 1, 1);
-				const bm2 = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
-				const boxMesh2 = new THREE.Mesh(bg2, bm2);
-				boxMesh2.castShadow = true;
-				boxMesh2.receiveShadow = true;
-				boxMesh2.position.x = 0;
-				boxMesh2.position.y = 0;
-				boxMesh2.position.z = 0.5;
-		
-				const bg3 = new THREE.BoxGeometry(1, 1, 1);
-				const bm3 = new THREE.MeshPhongMaterial({ color: 0x0000ff });
-				const boxMesh3 = new THREE.Mesh(bg3, bm3);
-				boxMesh3.castShadow = true;
-				boxMesh3.receiveShadow = true;
-				boxMesh3.position.x = 2;
-				boxMesh3.position.y = 0;
-				boxMesh3.position.z = 2;
-		
-				// Le Sol - The Floor
-				const groundGeometry = new THREE.BoxGeometry(9, 9, 0.5);
-				const groundMaterial = new THREE.MeshPhongMaterial({ color: 0xfafafa });
-				const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
-				groundMesh.receiveShadow = true;
-				groundMesh.position.z = -0.5;
-		
-				// la camera
-				let camera = new THREE.PerspectiveCamera(
-					cameraConfig.fov,
-					cameraConfig.aspect,
-					cameraConfig.near,
-					cameraConfig.far
-				);
-				camera.position.x = cameraConfig.position.x;
-				camera.position.y = cameraConfig.position.y;
-				camera.position.z = cameraConfig.position.z;
-		
-				function set_CameraFollow(posV3) {
-					camera.position.x = cameraConfig.position.x = posV3.x;
-					camera.position.y = cameraConfig.position.y = posV3.y;
-					if (typeof controls != "undefined") controls.update();
-				}
-				function set_CameraLookAt(posV3) {
-					cameraConfig.lookAt = posV3;
-					camera.lookAt(posV3);
-				}
-				// set_CameraLookAt(boxMesh2.position);
-				// set_CameraFollow(boxMesh2.position);
-		
-				scene.add(boxMesh1);
-				scene.add(boxMesh2);
-				scene.add(boxMesh3);
-				scene.add(groundMesh);
-				scene.add(ambiance);
-				scene.add(soleil);
-				// pas de scene.add(camera) ici mais plutot dans le renderer
-		
-				// le RENDERER (le canvas)
-				const renderer = new THREE.WebGLRenderer({ antialias: true });
-				renderer.setSize(window.innerWidth, window.innerHeight);
-				// renderer.outputEncoding = THREE.sRGBEncoding;
-				renderer.shadowMap.enabled = true;
-				renderer.setPixelRatio(window.devicePixelRatio);
-		
-				document.body.appendChild(renderer.domElement);
-		
-				if (typeof OrbitControls != "undefined") {
-					console.log("🤍 OrbitControls defined:");
-					const controls = new OrbitControls(camera, renderer.domElement);
-				} else {
-					console.log("💀 typeof OrbitControls =" + typeof OrbitControls);
-				}
-		
-				// Objet pour stocker l'état des touches
-				const keys = {};
-		
-				// Vitesse de déplacement du cube vert
-				const deplacementCube = 0.1;
-		
-				function handleKeydown(event) {
-					keys[event.key] = true;
-		
-					// Déplacer le cube vert en fonction des touches
-					if (keys.ArrowUp) {
-						boxMesh2.position.y += deplacementCube;
-					}
-					if (keys.ArrowDown) {
-						boxMesh2.position.y -= deplacementCube;
-					}
-					if (keys.ArrowLeft) {
-						boxMesh2.position.x -= deplacementCube;
-					}
-					if (keys.ArrowRight) {
-						boxMesh2.position.x += deplacementCube;
-					}
-		
-					// // Déplacement du cube vert avec les touches Q, S, D, Z
-					if (keys.KeyW) {
-						boxMesh2.position.z -= deplacementCube;
-					}
-					if (keys.KeyS) {
-						boxMesh2.position.z += deplacementCube;
-					}
-					if (keys.KeyA) {
-						boxMesh2.position.x -= deplacementCube;
-					}
-					if (keys.KeyD) {
-						boxMesh2.position.x += deplacementCube;
-					}
-				}
-		
-				function handleKeyup(event) {
-					keys[event.key] = false;
-				}
-		
-				window.addEventListener("keydown", handleKeydown);
-				window.addEventListener("keyup", handleKeyup);
-		
-				function animate() {
-					requestAnimationFrame(animate);
-		
-					const vitesseDeRotation = 0.02;
-					boxMesh1.rotation.x += vitesseDeRotation;
-					boxMesh3.rotation.z += vitesseDeRotation;
-					camera.updateProjectionMatrix();
-		
-					// si OrbitControls marche
-					if (typeof controls != "undefined") controls.update();
-					renderer.render(scene, camera);
-				}
-				animate();
-		
-				window.addEventListener("resize", onWindowResize);
-		
-				function onWindowResize() {
-					renderer.setSize(window.innerWidth, window.innerHeight);
-					camera.aspect = window.innerWidth / window.innerHeight;
-					camera.updateProjectionMatrix();
-				}
-			}
-		
-		}
 	}
+	Phase_2() {
+		this.scene = new THREE.Scene(); // scene
+		this.set_basics();
+		this.add_basicsToScene();
+		this.set_Renderer();
+		document.body.appendChild(this.renderer.domElement);
+
+		// set_CameraLookAt(this.boxMesh2.position);
+		// set_CameraFollow(this.boxMesh2.position);
+
+		document.getElementById("diverreur").textContent = "en cours";
+		document.getElementById("diverreur").remove();
+		this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+		this.KeyboardManager = new KeyboardManager();
+
+		this.animate();
+
+
+		window.addEventListener("resize", this.onWindowResize);
+	}
+
+	// -----------------------------------------------------------
+	onWindowResize = () => {
+		this.renderer.setSize(window.innerWidth, window.innerHeight);
+		this.camera.aspect = window.innerWidth / window.innerHeight;
+		this.camera.updateProjectionMatrix();
+	};
+	set_Renderer() {
+		// le RENDERER (le canvas)
+		this.renderer = new THREE.WebGLRenderer({ antialias: true });
+		this.renderer.setSize(window.innerWidth, window.innerHeight);
+		// this.renderer.outputEncoding = THREE.sRGBEncoding;
+		this.renderer.shadowMap.enabled = true;
+		this.renderer.setPixelRatio(window.devicePixelRatio);
+		this.renderer.domElement.id = this.canvasId
+	}
+	set_basics() {
+		// la camera
+		this.camera = new THREE.PerspectiveCamera(
+			this.cameraConfig.fov,
+			this.cameraConfig.aspect,
+			this.cameraConfig.near,
+			this.cameraConfig.far
+		);
+		this.camera.position.x = this.cameraConfig.position.x;
+		this.camera.position.y = this.cameraConfig.position.y;
+		this.camera.position.z = this.cameraConfig.position.z;
+
+		// le SOLEIL
+		this.soleil = new THREE.DirectionalLight(
+			this.sunConfig.color,
+			this.sunConfig.power
+		);
+		this.soleil.position.set(
+			this.sunConfig.position.x,
+			this.sunConfig.position.y,
+			this.sunConfig.position.z
+		);
+		this.soleil.castShadow = true;
+		this.soleil.shadow.bias = -0.001;
+
+		this.soleil.shadow.mapSize.width = 2048;
+		this.soleil.shadow.mapSize.height = 2048;
+		this.soleil.shadow.camera.near = 0.5;
+		this.soleil.shadow.camera.far = 500.0;
+		this.soleil.shadow.camera.left = 100;
+		this.soleil.shadow.camera.right = -100;
+		this.soleil.shadow.camera.top = 100;
+		this.soleil.shadow.camera.bottom = -100;
+
+		// une lumière d'ambiance
+		this.ambiance = new THREE.AmbientLight(0xffffff, 0.4);
+
+		// cubes
+		this.boxMesh2 = new THREE.Mesh(
+			new THREE.BoxGeometry(1, 1, 1),
+			new THREE.MeshPhongMaterial({ color: 0x00ff00 })
+		);
+		this.boxMesh2.castShadow = true;
+		this.boxMesh2.receiveShadow = true;
+		this.boxMesh2.position.x = 0;
+		this.boxMesh2.position.y = 0;
+		this.boxMesh2.position.z = 0.5;
+
+		// Le Sol - The Floor
+		this.groundMesh = new THREE.Mesh(
+			new THREE.BoxGeometry(9, 9, 0.5),
+			new THREE.MeshPhongMaterial({ color: 0xfafafa })
+		);
+		this.groundMesh.receiveShadow = true;
+		this.groundMesh.position.z = -0.5;
+	}
+	add_basicsToScene() {
+		this.scene.add(this.boxMesh2);
+		this.scene.add(this.groundMesh);
+		this.scene.add(this.ambiance);
+		this.scene.add(this.soleil);
+	}
+	set_CameraFollow(posV3) {
+		this.camera.position.x = this.cameraConfig.position.x = posV3.x;
+		this.camera.position.y = this.cameraConfig.position.y = posV3.y;
+		if (typeof controls != "undefined") controls.update();
+	}
+	// set_CameraLookAt(posV3) {
+	// 	this.cameraConfig.lookAt = posV3;
+	// 	this.camera.lookAt(posV3);
+	// }
 }
 window.addEventListener("DOMContentLoaded", () => {
-	
-	console.log("DOMContentLoaded ok !");
-	const gamecore = new gameCore();
-
-	
-	console.log("after every things ! ");
+	let gamecore = new gameCore();
 });
