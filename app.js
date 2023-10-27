@@ -11,9 +11,6 @@ const sequelize = require('./config/dbCreate');
 const importRoutes = require("./logs/importRoutes");
 const projectTree = require("./logs/projectTree");
 
-//webpack import
-require('./config/webpack');
-
 //loader import
 const { apiLoader } = require("./loaders/api");
 

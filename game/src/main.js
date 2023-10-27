@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { GameConfig } from "./class/GameConfig.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
+let toto = 1;
 window.addEventListener("DOMContentLoaded", () => {
 	let ok = false;
 

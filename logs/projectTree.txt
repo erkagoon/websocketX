@@ -1,9 +1,18 @@
 │   .gitignore
+│   .parcel-cache
+│   │   0a5d2efaab39efb7
+│   │   2578d21b8f037202
+│   │   5c05939945b41730.txt
+│   │   6d8dafd0bfdcb4a7
+│   │   ca07049f067fbcc9
+│   │   data.mdb
+│   └───lock.mdb
 │   api
 │   │   article.js
 │   │   avatarPost.js
 │   │   game.js
 │   │   index.js
+│   │   index2.js
 │   │   infosUser.js
 │   │   login.js
 │   │   loginPost.js
@@ -96,6 +105,7 @@
 │   │   │   └───avatar_9.png
 │   │   │   deconnexion-30.png
 │   │   │   deconnexion-60.png
+│   │   │   favicon.ico
 │   │   │   hide.png
 │   │   │   home.png
 │   │   │   password-64.png
@@ -127,17 +137,20 @@
 │   │   dbCreate.js
 │   │   express.js
 │   │   passport.js
-│   │   pug.js
-│   └───webpack.js
+│   └───pug.js
+│   dist
+│   └───main
+│       │   │   main.js
+│       │   └───main.js.map
 │   game
 │   │   dist
-│   │   └───assets
-│   │       │   └───js
-│   │       │       │   │   main.js
-│   │       │       │   └───main.js.LICENSE.txt
+│   │   │   main.js
+│   │   │   main.js.map
+│   │   │   main.mjs
+│   │   └───main.mjs.map
 │   └───src
 │       │   │   class
-│       │   │   └───Cube.js
+│       │   │   └───GameConfig.js
 │       │   └───main.js
 │   jobs
 │   loaders

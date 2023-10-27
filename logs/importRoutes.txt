@@ -5,6 +5,7 @@ Ordre - Fichier - Route - Type
 0 - article.js - '/article/:id' - get,
 0 - game.js - '/game' - get,
 0 - index.js - '/' - get,
+0 - index2.js - '/' - get,
 0 - infosUser.js - '/infosUser' - get,
 0 - login.js - '/login' - get,
 0 - register.js - '/register' - get,
