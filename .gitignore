@@ -13,6 +13,7 @@ node_modules/
 dist/
 dist-ssr/
 *.local
+.parcel-cache
 
 # Source maps (si vous ne voulez pas les mettre en ligne)
 *.css.map
